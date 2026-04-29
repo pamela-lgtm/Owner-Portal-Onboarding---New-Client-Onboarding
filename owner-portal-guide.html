@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verandah Properties — Your AppFolio Owner Portal Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #008C82;
+    --teal-deep: #005F58;
+    --teal-mist: #E8F3F2;
+    --gold: #D4AF50;
+    --gold-soft: #F5EBD0;
+    --gold-deep: #7A5E1A;
+    --ink: #1A2E2C;
+    --slate: #4A5D5B;
+    --mist: #8B9A98;
+    --paper: #FAF8F3;
+    --paper-warm: #F3EFE4;
+    --line: #E2DED2;
+    --line-soft: #EFEBE0;
+    --alert: #B8572B;
+    --success: #4A7C59;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none;
+    opacity: 0.025; z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 32px;
+    width: 80px;
+    height: 3px;
+    background: var(--gold);
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  h1 em { font-style: italic; color: var(--teal); font-weight: 400; }
+
+  .lede {
+    font-size: 18px;
+    color: var(--slate);
+    max-width: 640px;
+    line-height: 1.6;
+  }
+
+  /* WELCOME BANNER */
+  .welcome-banner {
+    margin-top: 36px;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, var(--teal-mist) 0%, var(--paper) 100%);
+    border-left: 3px solid var(--teal);
+    border-radius: 2px;
+  }
+  .welcome-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .welcome-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .welcome-text strong {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--teal-deep);
+  }
+
+  /* TABLE OF CONTENTS */
+  .toc {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+  }
+  .toc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 16px;
+  }
+  .toc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 6px 24px;
+    list-style: none;
+  }
+  .toc-list li {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .toc-list a {
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    gap: 12px;
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+  .toc-list a:hover { color: var(--teal); }
+  .toc-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    flex-shrink: 0;
+    width: 22px;
+  }
+
+  /* SECTIONS */
+  section.guide-section { margin-top: 64px; }
+
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-eyebrow::before {
+    content: ''; width: 18px; height: 1px; background: var(--gold);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.1;
+    scroll-margin-top: 20px;
+  }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--slate);
+    margin-bottom: 32px;
+    max-width: 640px;
+    line-height: 1.65;
+  }
+
+  /* STEPS */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .step {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold);
+    line-height: 0.9;
+    opacity: 0.9;
+  }
+
+  .step-content { min-width: 0; }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+
+  .step-body {
+    font-size: 15px;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .step-body p { margin-bottom: 12px; }
+  .step-body p:last-child { margin-bottom: 0; }
+  .step-body strong { color: var(--ink); font-weight: 600; }
+  .step-body em { color: var(--ink); font-style: italic; }
+  .step-body ul, .step-body ol {
+    margin: 8px 0 12px 0;
+    padding-left: 22px;
+  }
+  .step-body li { margin-bottom: 6px; padding-left: 4px; }
+
+  /* PORTAL URL CTA */
+  .portal-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 22px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin: 14px 0 6px;
+    transition: all 0.2s;
+  }
+  .portal-cta:hover { background: var(--teal-deep); color: var(--paper); }
+  .portal-cta::before {
+    content: '→';
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* TIPS, IMPORTANT, NOTE */
+  .tip, .important, .note-block {
+    margin-top: 16px;
+    padding: 14px 18px;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .tip-label, .important-label, .note-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .tip {
+    background: var(--teal-mist);
+    border-left: 3px solid var(--teal);
+    color: var(--teal-deep);
+  }
+  .tip-label { color: var(--teal); }
+  .tip strong { color: var(--ink); }
+
+  .important {
+    background: #FBE8DD;
+    border-left: 3px solid var(--alert);
+    color: var(--ink);
+  }
+  .important-label { color: var(--alert); }
+
+  .note-block {
+    background: var(--paper-warm);
+    border-left: 3px solid var(--gold);
+    color: var(--slate);
+  }
+  .note-label { color: var(--gold-deep); }
+  .note-block strong { color: var(--ink); }
+
+  /* SCREENSHOT PLACEHOLDER */
+  .screenshot {
+    margin-top: 18px;
+    background: var(--paper-warm);
+    border: 2px dashed var(--mist);
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+  .screenshot::before {
+    content: '⌑';
+    display: block;
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* REAL SCREENSHOT */
+  .screenshot-real {
+    margin-top: 18px;
+    padding: 24px;
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    text-align: center;
+  }
+  .screenshot-real img {
+    max-width: 100%;
+    max-height: 480px;
+    height: auto;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(26, 46, 44, 0.06);
+  }
+  .screenshot-real-caption {
+    margin-top: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+
+  /* WIDGET GRID — for explaining the dashboard */
+  .widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin: 20px 0 12px;
+  }
+  .widget-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 18px 20px;
+  }
+  .widget-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .widget-card p {
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.55;
+  }
+
+  /* TABS GRID — for explaining tab structure */
+  .tabs-overview {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 24px;
+    background: white;
+  }
+  .tabs-overview > div {
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .tabs-overview > div:nth-last-child(-n+2) { border-bottom: none; }
+  .tab-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--teal-deep);
+    background: var(--teal-mist);
+    border-right: 1px solid var(--line-soft);
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
+    line-height: 1.25;
+  }
+  .tab-desc {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.55;
+  }
+  .tab-desc strong { color: var(--ink); }
+
+  /* VIDEO */
+  .video-section { margin-top: 32px; }
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--ink);
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .video-caption {
+    margin-top: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mist);
+    text-align: center;
+  }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 16px; }
+  details {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  details[open] { border-color: var(--teal); }
+  summary {
+    padding: 20px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--teal);
+    font-weight: 400;
+    transition: transform 0.3s;
+  }
+  details[open] summary::after { content: '−'; }
+  details > div {
+    padding: 0 24px 22px;
+    font-size: 14.5px;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+  details > div p { margin-bottom: 10px; }
+  details > div p:last-child { margin-bottom: 0; }
+  details > div strong { color: var(--ink); }
+  details > div ol, details > div ul {
+    margin: 8px 0 12px;
+    padding-left: 22px;
+  }
+  details > div li { margin-bottom: 6px; padding-left: 4px; }
+
+  /* HELP CARD */
+  .help-card {
+    margin-top: 56px;
+    padding: 40px 40px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+  }
+  .help-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .help-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-style: italic;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .help-text {
+    font-size: 15.5px;
+    color: rgba(250, 248, 243, 0.85);
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto 32px;
+    text-align: center;
+  }
+  .contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .contact-card {
+    background: rgba(250, 248, 243, 0.05);
+    border: 1px solid rgba(212, 175, 80, 0.3);
+    border-radius: 2px;
+    padding: 24px 22px;
+    text-align: center;
+  }
+  .contact-phase {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .contact-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--paper);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .contact-role {
+    font-size: 13px;
+    color: rgba(250, 248, 243, 0.7);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .contact-info {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+  }
+  .contact-info a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212, 175, 80, 0.4);
+    word-break: break-all;
+  }
+  .help-contact {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin-top: 24px;
+    color: rgba(250, 248, 243, 0.7);
+  }
+  .help-contact a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+  }
+  @media (max-width: 600px) {
+    .contact-split { grid-template-columns: 1fr; }
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 44px 0 56px;
+    margin-top: 56px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--teal);
+  }
+  .footer-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mist);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 720px) {
+    .wrap { padding: 0 20px; }
+    .hero { padding: 48px 0 36px; }
+    h2 { font-size: 26px; }
+    .step {
+      grid-template-columns: 56px 1fr;
+      padding: 22px 22px;
+      gap: 18px;
+    }
+    .step-num { font-size: 40px; }
+    .step-title { font-size: 19px; }
+    .step-body { font-size: 14.5px; }
+    .welcome-banner { padding: 22px 24px; }
+    .welcome-text { font-size: 18px; }
+    .help-card { padding: 32px 24px; }
+    .help-title { font-size: 24px; }
+    .tabs-overview { grid-template-columns: 1fr; }
+    .tab-name { border-right: none; border-bottom: 1px solid var(--line-soft); }
+  }
+
+  @media print {
+    body::before { display: none; }
+    .step, details { break-inside: avoid; }
+    details > div { display: block !important; }
+    summary::after { display: none; }
+    details { border: 1px solid #ccc !important; }
+    .toc { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Verandah Properties · Owner Guide</div>
+    <h1>Your Owner<br><em>Portal Guide</em></h1>
+    <p class="lede">A walkthrough of the AppFolio Owner Portal — your secure window into how your property is performing under Verandah's care.</p>
+
+    <div class="welcome-banner">
+      <div class="welcome-label">Welcome</div>
+      <div class="welcome-text">Your Owner Portal is where the relationship becomes <strong>tangible</strong> — every statement, every disbursement, every document we share with you, all in one secure place. This guide will get you set up in about ten minutes.</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc">
+      <div class="toc-label">In this guide</div>
+      <ol class="toc-list">
+        <li><a href="#activate"><span class="toc-num">01</span><span>Activate your portal</span></a></li>
+        <li><a href="#password"><span class="toc-num">02</span><span>Password &amp; two-factor</span></a></li>
+        <li><a href="#login"><span class="toc-num">03</span><span>Logging in anytime</span></a></li>
+        <li><a href="#tour"><span class="toc-num">04</span><span>A tour of your portal</span></a></li>
+        <li><a href="#statements"><span class="toc-num">05</span><span>Statements &amp; documents</span></a></li>
+        <li><a href="#contributions"><span class="toc-num">06</span><span>Making a contribution</span></a></li>
+        <li><a href="#video"><span class="toc-num">07</span><span>Video walkthrough</span></a></li>
+        <li><a href="#faq"><span class="toc-num">08</span><span>Common questions</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SECTION 1: ACTIVATE -->
+  <section class="guide-section" id="activate">
+    <div class="section-eyebrow">First Things First</div>
+    <h2>Activate Your Owner Portal</h2>
+    <p class="section-intro">Once Verandah has set up your account, you'll receive an email from AppFolio inviting you to activate your portal. This is a one-time process and takes just a few minutes.</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <div class="step-title">Watch for the activation email</div>
+          <div class="step-body">
+            <p>You'll get one of two emails to start:</p>
+            <ul>
+              <li>A <strong>welcome announcement</strong> from Verandah inviting you in, or</li>
+              <li>A <strong>notification</strong> that an item (like your first statement) is ready to view in your portal</li>
+            </ul>
+            <p>Either email will include an <strong>Activate Now</strong> button — click that button to begin.</p>
+            <div class="tip">
+              <span class="tip-label">If you don't see it</span>
+              Check your spam or junk folder. AppFolio activation emails sometimes land there. The sender will be from AppFolio's domain — not from Verandah directly.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <div class="step-title">Confirm your email address</div>
+          <div class="step-body">
+            <p>The activation page will show your email address — the one Verandah has on file. If it's correct, continue. If not, contact Linda before going further so we can update it.</p>
+            <p>You'll then receive a confirmation email. Open it and click <strong>Confirm my email</strong>.</p>
+          </div>
+          <div class="screenshot-real">
+              <img src="data:image/jpeg;base64,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p8l/tHe9SCII/qip8l/tHe9OqKnyX+0d71IIgj+qKnyX+0d706oqfJf7R3vUgiCP6oqfJf7R3vTqip8l/tHe9SCII/qip8l/tHe9OqKnyX+0d71IIgj+qKnyX+0d706oqfJf7R3vUgiCP6oqfJf7R3vTqip8l/tHe9SCII/qip8l/tHe9OqKnyX+0d71IIgj+qKnyX+0d706oqfJf7R3vUgiCP6oqfJf7R3vTqip8l/tHe9SCII/qip8l/tHe9OqKnyX+0d71IIgj+qKnyX+0d706oqfJf7R3vUgiCP6oqfJf7R3vTqip8l/tHe9SCII/qip8l/tHe9OqKnyX+0d71IIgj+qKnyX+0d7143cZXiqSyM6QOawuB6R3IgfWpZa+S/o+x/du/0QZ0yXU4XE7kxtJ+xF8o/kUH923/REEdj/AOhr/wDf2v2j1seL+N4M1eN0fTVjHxt7W7t23H2rXx/9DX/7+1+0et/HEeIwc/8Ay2/6IOSaS8DE+F0vqTDyagkkdmGcDJGAgRgHcE95PnWH4FrH4Kfgd1+en8b8Z6XhPR7/ACdu3Zdm3Hem471bflXdhx/V/gcnzmidPaeizz434gbOle0kSA9pA8xHmWxq/wAEUmc1XgMyzPyxMxcUUb2uBLndHtzafNvtzXWNx3puO9N6Tdhy+HwWSx+GGXXRzchheS/xfY8QJG3Dv8leGhvBJLpzOahyEmdlsNysUkTA0EOYH783d5G66vuO9Nx3pvSbsON6Y8DE+J0PqDT0moHySZUjhkY0hrNuzcecnzq6eCbR8miNIRYOW+bsjZHSOk2IaNz2AHzK4bjvTcd6ibTJFYgRNx3puO9QsIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegIm4703HegLXyX9H2P7t3+i2Nx3rWyZHV9jn/wCW7/RBnR/IoP7tv+iJR/IoP7tv+iINPBgOp2Gkbg27AI/91y9OqqHzJH1SO96xwH5LP+eWP2rlIINLqqj8y72jvenVVH5l3tHe9bqINLqqj8y72jvenVVH5l3tHe9bqINLqqj8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" alt="Verandah Properties Create Your Owner Portal Password screen" />
+              <div class="screenshot-real-caption">The Verandah-branded password setup screen you'll see</div>
+            </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <div class="step-title">Move on to password setup</div>
+          <div class="step-body">
+            <p>Once your email is confirmed, AppFolio will walk you straight into the next step — creating your password and setting up two-factor authentication. Don't close the window.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: PASSWORD & 2FA -->
+  <section class="guide-section" id="password">
+    <div class="section-eyebrow">Security Setup</div>
+    <h2>Create Your Password &amp; Two-Factor Authentication</h2>
+    <p class="section-intro">Your portal contains real financial data — disbursement history, banking information, statements — so AppFolio adds two layers of security. The setup is quick.</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <div class="step-title">Choose a strong password</div>
+          <div class="step-body">
+            <p>On the password page, create a password that's unique to this portal — not one you reuse from email or banking. Check the box agreeing to AppFolio's Terms of Service, then click <strong>Create an account</strong>.</p>
+            <div class="tip">
+              <span class="tip-label">Password manager users</span>
+              <strong>Use one.</strong> 1Password, Bitwarden, Apple Keychain, Google Password Manager — any of them. They generate strong passwords and store them so you'll never have to remember this one.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <div class="step-title">Set up two-factor authentication</div>
+          <div class="step-body">
+            <p>AppFolio will ask for a phone number to send your security code to. Enter your <strong>primary mobile number</strong> — the phone you have with you most often.</p>
+            <p>Choose how you'd like to receive verification codes:</p>
+            <ul>
+              <li><strong>SMS text message</strong> (most common)</li>
+              <li><strong>Phone call</strong> (works for landlines too)</li>
+            </ul>
+            <div class="important">
+              <span class="important-label">Important — Email 2FA No Longer Supported</span>
+              AppFolio recently retired email-based two-factor authentication for security reasons. If you're a returning AppFolio user with another property manager, you may be prompted to migrate to phone-based verification. Just follow the prompts — same idea, more secure.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <div class="step-title">Confirm with your verification code</div>
+          <div class="step-body">
+            <p>AppFolio will text or call you with a verification code. Enter it to confirm your phone is registered.</p>
+            <p>You'll see an option to <strong>"remember this device for 30 days."</strong> Checking this means you won't need to enter a code every single time you log in from this same phone or computer — only periodically.</p>
+            <div class="tip">
+              <span class="tip-label">Tip from Linda</span>
+              Check that "remember this device" box on your trusted phone and home computer. It saves you time without compromising security.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <div class="step-title">You're in</div>
+          <div class="step-body">
+            <p>Click <strong>Log In</strong>, and you'll land on your dashboard for the first time. We'll walk through what you're looking at next.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: LOGGING IN -->
+  <section class="guide-section" id="login">
+    <div class="section-eyebrow">Going Forward</div>
+    <h2>Logging In Anytime</h2>
+    <p class="section-intro">From now on, accessing your portal is straightforward. You can log in from any device — desktop, tablet, or phone.</p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">→</span>
+        <div class="step-content">
+          <div class="step-title">Bookmark this URL</div>
+          <div class="step-body">
+            <p>The fastest way to access your portal is to bookmark the AppFolio owner login page in your browser:</p>
+            <a href="https://www.appfolio.com/login-owner" class="portal-cta" target="_blank" rel="noopener">www.appfolio.com/login-owner</a>
+            <p>Enter your email and password, complete two-factor verification if prompted, and you're in.</p>
+            <div class="tip">
+              <span class="tip-label">Add to your phone's home screen</span>
+              On your phone's browser, you can save the login page as a home screen icon — it'll behave like an app. On iPhone: tap the share button, then "Add to Home Screen." On Android: tap the menu, then "Add to Home Screen."
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: TOUR -->
+  <section class="guide-section" id="tour">
+    <div class="section-eyebrow">A Tour of Your Portal</div>
+    <h2>What You'll See When You Log In</h2>
+    <p class="section-intro">Your portal is organized around two main areas: a <strong>dashboard</strong> that summarizes your property's performance at a glance, and a set of <strong>tabs</strong> for diving deeper into specifics.</p>
+
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin: 32px 0 14px; color: var(--ink);">The Dashboard</h3>
+    <p style="color: var(--slate); margin-bottom: 4px; line-height: 1.65;">Your dashboard is the home base — a real-time view of how your property is performing. It's broken into widgets, each one summarizing a different aspect of your investment:</p>
+
+    <div class="widget-grid">
+      <div class="widget-card">
+        <h4>Total Income</h4>
+        <p>All rental income and other receipts collected against your property.</p>
+      </div>
+      <div class="widget-card">
+        <h4>Total Expense</h4>
+        <p>All paid bills against your property — maintenance, HOA, insurance pass-throughs, etc.</p>
+      </div>
+      <div class="widget-card">
+        <h4>Your Contribution</h4>
+        <p>The lump sum of all contributions you've made toward your property (reserves, capital expenses).</p>
+      </div>
+      <div class="widget-card">
+        <h4>Your Disbursement</h4>
+        <p>The lump sum of all distributions Verandah has paid out to you.</p>
+      </div>
+      <div class="widget-card">
+        <h4>Most Recent Packet</h4>
+        <p>Your latest owner statement (mid-month or end-of-month). Click "See All" to view your full history.</p>
+      </div>
+      <div class="widget-card">
+        <h4>Occupancy</h4>
+        <p>Whether your property is occupied or vacant as of today.</p>
+      </div>
+      <div class="widget-card">
+        <h4>Rent Collection</h4>
+        <p>The total rent charged versus rent collected so far this month.</p>
+      </div>
+      <div class="widget-card">
+        <h4>Income &amp; Expense Breakdowns</h4>
+        <p>A line-by-line view of each transaction making up your totals — full transparency.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-label">Customize what you see</span>
+      The dashboard is yours. Click <strong>Customize</strong> in the top right to add, remove, resize, or rearrange widgets. Save the layout you prefer, and it'll stick across every device you log in from. If you ever want a clean slate, click <strong>Restore to Default</strong>.
+    </div>
+
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin: 40px 0 14px; color: var(--ink);">The Tabs</h3>
+    <p style="color: var(--slate); margin-bottom: 4px; line-height: 1.65;">Along the side of your portal you'll see a set of tabs. Here's what each one is for:</p>
+
+    <div class="tabs-overview">
+      <div class="tab-name">Dashboard</div>
+      <div class="tab-desc">Your home base — the customizable overview described above.</div>
+
+      <div class="tab-name">Reports</div>
+      <div class="tab-desc">Run real-time reports for your property. Filter by date range, search within results, export to PDF/Excel/CSV.</div>
+
+      <div class="tab-name">Properties</div>
+      <div class="tab-desc">A summary of your active properties: address, occupancy, lease end date, rental amount, and any reserve balance held.</div>
+
+      <div class="tab-name">Statements</div>
+      <div class="tab-desc"><strong>Where you'll spend most of your time.</strong> View or download every owner packet Verandah has published — both your mid-month and end-of-month statements. Most recent at top, organized by owner of record.</div>
+
+      <div class="tab-name">Documents</div>
+      <div class="tab-desc">Any other files Verandah has shared with you — leases, inspection reports, insurance documents, 1099s, anything we've published.</div>
+
+      <div class="tab-name">Contributions</div>
+      <div class="tab-desc">Make a secure payment to your reserve via credit/debit card or eCheck. Only appears if enabled by Verandah.</div>
+    </div>
+
+    <div class="note-block" style="margin-top: 24px;">
+      <span class="note-label">A note on what you'll see first</span>
+      Brand new owners often log in and find very little data displayed — that's normal. Until your property has been listed, leased, and the first rent has been collected, there's nothing to populate. Within the first few months, your portal will start filling in.
+    </div>
+  </section>
+
+  <!-- SECTION 5: STATEMENTS & DOCUMENTS -->
+  <section class="guide-section" id="statements">
+    <div class="section-eyebrow">Statements &amp; Documents</div>
+    <h2>Reading Your Owner Statements</h2>
+    <p class="section-intro">At Verandah Properties, we issue <strong>two owner statements per month</strong> for every property under management. This is part of our proactive communication standard — we want you to have full visibility into your property's financial activity in real time, not only at month-end.</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <span class="step-num">A</span>
+        <div class="step-content">
+          <div class="step-title">Mid-Month Statement — Issued at the time of your owner distribution</div>
+          <div class="step-body">
+            <p>Typically around the <strong>8th–10th of the month</strong>. This statement is published when your monthly owner distribution (ACH disbursement) is sent. It covers all activity from the 1st of the month through the disbursement date and shows you:</p>
+            <ul>
+              <li>Beginning cash balance and your required reserve <em>(the reserve amount is established in your Property Management Agreement)</em></li>
+              <li>Rent received from the tenant for the current month</li>
+              <li>Any program fees deducted <em>(e.g., SureVestor General Liability, Animal Protection Guarantee, if applicable)</em></li>
+              <li>Verandah's management fee for the month</li>
+              <li>Your owner distribution (ACH payment) and ending balance</li>
+            </ul>
+            <p>The purpose of the mid-month statement is to give you a <strong>clear, itemized view of exactly how your distribution was calculated</strong> — the moment funds reach your account.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">B</span>
+        <div class="step-content">
+          <div class="step-title">End-of-Month Statement — Issued at the close of the month</div>
+          <div class="step-body">
+            <p>This statement reflects the full month's transactions through the <strong>final calendar day</strong>. It will mirror the mid-month statement if no additional activity occurred, or it will capture any items posted after disbursement — for example, a maintenance invoice paid from reserves or a vendor payment processed mid-month.</p>
+            <p>The purpose of the end-of-month statement is to provide a <strong>complete, reconciled record</strong> of the property's full monthly financial activity for your records.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">→</span>
+        <div class="step-content">
+          <div class="step-title">A note on disbursement timing</div>
+          <div class="step-body">
+            <p>Per your Property Management Agreement, owner distributions are processed <strong>once per month</strong>, as soon as tenant funds have cleared our trust account, in accordance with Florida law.</p>
+            <p>We typically target the <strong>8th–10th of the month</strong> as the standard disbursement window, though the exact date may shift based on:</p>
+            <ul>
+              <li>Weekends and holidays</li>
+              <li>ACH processing times</li>
+              <li>When tenant payment clears our account</li>
+            </ul>
+            <div class="tip">
+              <span class="tip-label">Where to find them</span>
+              Both statements are posted directly to your Owner Portal under the <strong>Statements</strong> tab. All historical statements remain accessible in the portal for your records — you'll never lose visibility into past months.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <div class="step-title">Find the Statements tab</div>
+          <div class="step-body">
+            <p>Click <strong>Statements</strong> in the side menu. You'll see every packet Verandah has published, with the most recent at the top. Mid-month and end-of-month statements appear in chronological order alongside one another.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <div class="step-title">Open or download</div>
+          <div class="step-body">
+            <p>Click <strong>Download Packet</strong> on any statement to save it to your device. Each packet is a complete PDF — easy to read, easy to forward to your accountant, easy to file.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <div class="step-title">For tax season — find your 1099</div>
+          <div class="step-body">
+            <p>At year-end, your 1099 will be published to the <strong>Documents</strong> tab. If you've consented to electronic delivery (most owners do), this is the fastest way to get it to your accountant — just download and forward.</p>
+            <div class="tip">
+              <span class="tip-label">Tip from Linda</span>
+              Many owners create a "Verandah" folder on their computer or in cloud storage and drop each downloaded packet there as it arrives. By tax time, everything you'll need is already organized.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <div class="step-title">Questions about anything you see?</div>
+          <div class="step-body">
+            <p>Reach out to our Client Experience team. Owner statements can take a couple of cycles to feel intuitive — and Verandah would rather walk you through one line by line than have you wonder. <strong>No question is too small.</strong></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 6: CONTRIBUTIONS -->
+  <section class="guide-section" id="contributions">
+    <div class="section-eyebrow">Funding &amp; Reserves</div>
+    <h2>Making a Contribution</h2>
+    <p class="section-intro">If you ever need to add funds to your property's reserve account — to cover an upcoming repair, a capital expense, or just to maintain a healthy operating cushion — you can do it directly through your portal.</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <div class="step-title">Click the Contributions tab</div>
+          <div class="step-body">
+            <p>From the side menu, click <strong>Contributions</strong>.</p>
+            <div class="note-block">
+              <span class="note-label">Note</span>
+              If you don't see this tab, contact our Client Experience team — it may need to be enabled in your account settings.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <div class="step-title">Enter the contribution details</div>
+          <div class="step-body">
+            <p>Select your property, enter an amount (up to $15,000 per transaction), and choose your payment method:</p>
+            <ul>
+              <li><strong>eCheck (ACH)</strong> — lowest fees, takes 3–5 business days to clear</li>
+              <li><strong>Credit or debit card</strong> — instant, but transaction fees apply</li>
+            </ul>
+            <p>AppFolio will show you the exact transaction fee before you submit. There are no hidden costs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <div class="step-title">Review and submit</div>
+          <div class="step-body">
+            <p>Confirm the details on the review screen, then click <strong>Submit</strong>. You'll get an email confirmation right away.</p>
+            <div class="tip">
+              <span class="tip-label">For your records</span>
+              Save the confirmation email or print the receipt — handy at tax time. The contribution and the transaction fee appear as <strong>separate line items</strong> on your statement (the contribution from Verandah, the fee from AppFolio).
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin: 40px 0 14px; color: var(--ink);">Updating Your Bank Information</h3>
+    <p style="color: var(--slate); line-height: 1.65; margin-bottom: 14px;">If your banking details change — new bank, new account number, anything — please reach out to our Client Experience team and we'll handle it for you. Here's how it works:</p>
+    <ol style="margin-left: 22px; color: var(--slate); line-height: 1.85; font-size: 15px;">
+      <li>Email <a href="mailto:clientexperience@verandahproperties.com" style="color: var(--teal); border-bottom: 1px solid var(--teal); text-decoration: none;">clientexperience@verandahproperties.com</a> letting us know you'd like to update your account information.</li>
+      <li>Our team will send you an <strong>ACH Authorization form</strong> through AppFolio Forms.</li>
+      <li>Complete and return the form. Verandah's accounting team will then update the account information on file for your future disbursements.</li>
+    </ol>
+    <div class="note-block" style="margin-top: 16px;">
+      <span class="note-label">Why this process</span>
+      Bank account changes go through a secure form rather than direct portal entry — this ensures every update is properly authorized and documented in your records.
+    </div>
+  </section>
+
+  <!-- SECTION 7: VIDEO -->
+  <section class="guide-section" id="video">
+    <div class="section-eyebrow">Visual Walkthrough</div>
+    <h2>Owner Portal in Action</h2>
+    <p class="section-intro">If you'd rather watch than read, AppFolio's official overview shows the portal in motion — login, dashboard, statements, and more — in just a few minutes.</p>
+
+    <div class="video-section">
+      <div class="video-frame">
+        <iframe src="https://fast.wistia.net/embed/iframe/6n3887to5x"
+                title="AppFolio Owner Portal Overview"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+                loading="lazy"></iframe>
+      </div>
+      <div class="video-caption">Official AppFolio Owner Portal walkthrough</div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: FAQ -->
+  <section class="guide-section" id="faq">
+    <div class="section-eyebrow">Common Questions</div>
+    <h2>Frequently Asked</h2>
+
+    <div class="faq-list">
+
+      <details>
+        <summary>I never received my activation email — what now?</summary>
+        <div>
+          <p>First, check your spam or junk folder. Activation emails come from AppFolio's domain (not Verandah's), and some email providers route them aggressively.</p>
+          <p>If it's not there, email Linda. She can confirm the correct email is on file and resend the activation link in seconds.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I forgot my password. How do I reset it?</summary>
+        <div>
+          <p>On the AppFolio login page, click <strong>Forgot Password?</strong> and enter your email. AppFolio will send you a reset link.</p>
+          <p>If the reset email doesn't arrive, contact Linda — sometimes it's a sign your email on file isn't current.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What if I'm traveling internationally and can't receive verification codes?</summary>
+        <div>
+          <p>You have a few options:</p>
+          <ul>
+            <li>Enable international roaming on your phone — SMS and calls work normally</li>
+            <li>Use <strong>Google Voice</strong> — works over Wi-Fi anywhere in the world. AppFolio fully supports Google Voice numbers for 2FA.</li>
+            <li>Add an international phone number to your account temporarily</li>
+          </ul>
+          <p>If you'll be traveling for an extended period, let Linda know in advance and we can plan ahead.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I own properties under multiple LLCs but only see one in my portal.</summary>
+        <div>
+          <p>Access to your portal is tied to your <strong>email address</strong>. As long as Verandah has the same email on file for each entity, all your properties should show up in one portal — scroll down on the Statements tab to see separate packets for each entity.</p>
+          <p>If you're missing properties you expect to see, contact our Client Experience team. We may need to harmonize the email addresses across your records.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I use the same login on my phone and computer?</summary>
+        <div>
+          <p>Yes — your portal is fully responsive, meaning it works just as well on a phone or tablet as it does on a computer. The login URL and credentials are the same.</p>
+          <p>Two-factor authentication will ask you to verify each new device once. After that, if you've checked "remember this device for 30 days," you'll go straight in.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>The numbers on my dashboard look wrong. What do I do?</summary>
+        <div>
+          <p>Don't troubleshoot it alone. Email our Client Experience team and tell them exactly which figure looks off. We'd much rather walk you through it than have you wonder. Sometimes what looks like an error is a timing question (e.g., a payment cleared yesterday but a statement was generated the day before). Other times it's something we need to correct on our end. Either way, we want to know.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Are international phone numbers supported for 2FA?</summary>
+        <div>
+          <p>Yes. AppFolio supports a wide range of international country codes — you'll see them in the dropdown when setting up your phone. (One known issue: codes don't always reach phone numbers in China; AppFolio has been working to resolve that.)</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is my data safe?</summary>
+        <div>
+          <p>AppFolio is the industry-standard property management platform used by tens of thousands of professional property managers across North America. Your portal uses HTTPS encryption end-to-end, mandatory two-factor authentication, and is independently audited for security.</p>
+          <p>Verandah and AppFolio both treat your financial data with the same care a bank does — because for most owners, that's exactly what it is.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What if I lose access to the phone I used for two-factor authentication?</summary>
+        <div>
+          <p>Contact our Client Experience team right away (or Linda directly if you're still in the onboarding phase). Verandah's admin can help reset your account so you can register a new phone — there's a verification process, but it's straightforward.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How often will I receive statements?</summary>
+        <div>
+          <p>Verandah publishes <strong>two statements per month</strong> for every property — a mid-month statement issued at the time of your owner distribution (typically the 8th–10th), and an end-of-month statement issued at the close of the month. You'll receive an email notification each time a new statement is ready.</p>
+          <p>This is part of our proactive communication standard — we want you to have full visibility into your property's financial activity in real time, not only at month-end.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- HELP CARD -->
+  <div class="help-card">
+    <div class="help-eyebrow">Who to call when</div>
+    <div class="help-title">Two friendly faces, one shared mission</div>
+    <div class="help-text">Verandah's white-glove approach means you always have a clear point of contact. Linda walks you through onboarding and getting set up. Once your property is leased, our Client Experience team takes the ongoing relationship from there.</div>
+
+    <div class="contact-split">
+      <div class="contact-card">
+        <div class="contact-phase">During Onboarding</div>
+        <div class="contact-name">Linda Lopez</div>
+        <div class="contact-role">Portal activation, password help, two-factor setup, finding your way around — Linda is your guide through the entire onboarding period.</div>
+        <div class="contact-info">
+          <a href="mailto:linda@verandahproperties.com">linda@verandahproperties.com</a><br>
+          <a href="tel:+14078550331">407-855-0331</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-phase">Once Tenanted &amp; Ongoing</div>
+        <div class="contact-name">Client Experience</div>
+        <div class="contact-role">Statements, contributions, banking, maintenance questions, anything operational — Megan and Rain on the Client Experience team will respond.</div>
+        <div class="contact-info">
+          <a href="mailto:clientexperience@verandahproperties.com">clientexperience@verandahproperties.com</a><br>
+          <a href="tel:+14078550331">407-855-0331</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Verandah Properties</div>
+      <div class="footer-meta">
+        Owner Portal Guide<br>
+        White-Glove Property Management · Lake Nona
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
